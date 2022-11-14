@@ -7,7 +7,8 @@
 	"require": {
 		"jgrossi/corcel": "^5.0",
 		"illuminate/database": "^8.41",
-		"nesbot/carbon": "^2.58"
+		"nesbot/carbon": "^2.58",
+		"jenssegers/blade": "^1.4"
 	},
 	"autoload": {
 		"psr-4": {

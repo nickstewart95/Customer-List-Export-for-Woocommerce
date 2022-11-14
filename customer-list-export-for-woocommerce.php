@@ -18,3 +18,5 @@ use CustomerListExport\Loader;
 
 $plugin = new Loader(__DIR__, plugin_dir_url(__FILE__));
 $plugin->init();
+
+$GLOBALS['blade'] = Loader::initBladeViews();
