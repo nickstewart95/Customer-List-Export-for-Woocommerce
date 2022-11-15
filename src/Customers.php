@@ -82,13 +82,30 @@ class Customers {
 			return $data;
 		}, $customers);
 
-		// Remove duplicates
+		// Remove duplicate addresses
 		$processed = [];
 		$customers = array_filter($customers, function ($data) use (
 			&$processed
 		) {
 			if ($data['hash'] && !in_array($data['hash'], $processed)) {
 				$processed[] = $data['hash'];
+				return true;
+			} else {
+				return false;
+			}
+		});
+
+		// Remove duplicate accounts by billing email
+		$processed = [];
+		$customers = array_filter($customers, function ($data) use (
+			&$processed
+		) {
+			$email = !empty($data['_customer_email'])
+				? $data['_customer_email']
+				: $data['_billing_email'];
+
+			if (!empty($email) && !in_array($email, $processed)) {
+				$processed[] = $email;
 				return true;
 			} else {
 				return false;
