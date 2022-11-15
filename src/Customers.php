@@ -50,11 +50,7 @@ class Customers {
 			}
 
 			// Create a hash for easy compare
-			$hash =
-				$data['first_name'] .
-				$data['last_name'] .
-				$data['address_1'] .
-				$data['city'];
+			$hash = $data['last_name'] . $data['address_1'] . $data['city'];
 			$hash = md5(strtolower($hash));
 			$data['hash'] = $hash;
 

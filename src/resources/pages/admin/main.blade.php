@@ -3,7 +3,7 @@
 		<h3>Customer List Export for Woocommerce</h3>
 		<a href="{{ admin_url() }}admin.php?page=customer-list-export&source={{ $source }}&a=export" class="button button-primary button-large">Export to CSV</a>
 	</div>
-	<p>The filter works by either creating a hash of the billing name address or the shipping name and address and then removing any duplicates</p>
+	<p>The filter works by either creating a hash of the billing or shipping last name and address (address_1 and city) and then removing any duplicates</p>
 	<ul class="subsubsub">
 		<li>Filter By:</li>
 		<li><a href="{{ admin_url() }}admin.php?page=customer-list-export&source=billing">Billing</a></li>
