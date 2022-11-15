@@ -82,6 +82,30 @@ class Customers {
 			return $data;
 		}, $customers);
 
+		// Remove duplicates
+		$customers = $this->removeDuplicates($customers);
+
+		// Sort by last name
+		uasort($customers, function ($x, $y) {
+			return $x['last_name'] > $y['last_name'];
+		});
+
+		return $customers;
+	}
+
+	// Grab subscribers
+	private function fetchSubscribers() {
+		return $this->wpdb->get_col("SELECT DISTINCT pm.meta_value
+			FROM {$this->wpdb->prefix}posts as p
+			JOIN {$this->wpdb->prefix}postmeta as pm
+				ON p.ID = pm.post_id
+			WHERE p.post_type = 'shop_subscription'
+			AND p.post_status = 'wc-active'
+			AND pm.meta_key = '_customer_user'");
+	}
+
+	// Remove duplicates by address and email
+	private function removeDuplicates($customers) {
 		// Remove duplicate addresses
 		$processed = [];
 		$customers = array_filter($customers, function ($data) use (
@@ -112,23 +136,7 @@ class Customers {
 			}
 		});
 
-		// Sort by last name
-		uasort($customers, function ($x, $y) {
-			return $x['last_name'] > $y['last_name'];
-		});
-
 		return $customers;
-	}
-
-	// Grab subscribers
-	private function fetchSubscribers() {
-		return $this->wpdb->get_col("SELECT DISTINCT pm.meta_value
-			FROM {$this->wpdb->prefix}posts as p
-			JOIN {$this->wpdb->prefix}postmeta as pm
-				ON p.ID = pm.post_id
-			WHERE p.post_type = 'shop_subscription'
-			AND p.post_status = 'wc-active'
-			AND pm.meta_key = '_customer_user'");
 	}
 
 	// Normalize street suffixes to reduce duplicates
