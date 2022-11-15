@@ -22,6 +22,7 @@
 				<th scope="col" id="city" class="manage-column column-type">City</th>
 				<th scope="col" id="state" class="manage-column column-type">State</th>
 				<th scope="col" id="zip" class="manage-column column-type">ZIP</th>
+				<th scope="col" id="last_name" class="manage-column column-type">Has Subscriptions</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -34,6 +35,7 @@
 					<td>{{ $customer['city'] }}</td>
 					<td>{{ $customer['state'] }}</td>
 					<td>{{ $customer['zip'] }}</td>
+					<td>{{ $customer['has_subscription'] }}</td>
 			</tr>
 			@endforeach
 		</tbody>

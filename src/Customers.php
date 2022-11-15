@@ -10,6 +10,9 @@ class Customers {
 	}
 
 	public function fetchData($source = 'billing') {
+		// Grab subscribers, if any
+		$subscribers = $this->fetchSubscribers();
+
 		// Grab all the meta values
 		$this->wpdb->query('SET SESSION group_concat_max_len = 10000');
 
@@ -23,7 +26,8 @@ class Customers {
 
 		$customers = $this->wpdb->get_results($query);
 
-		$customers = array_map(function ($a) use ($source) {
+		// Filter the data
+		$customers = array_map(function ($a) use ($source, $subscribers) {
 			// Pull out the meta values
 			$data = array_combine(
 				explode('||', $a->meta_keys),
@@ -64,6 +68,14 @@ class Customers {
 
 			$data['hash'] = $hash;
 
+			// Check if the user has subscrptions
+			$data['has_subscription'] = 'No';
+			if (!empty($subscribers)) {
+				if (in_array($data['_customer_user'], $subscribers)) {
+					$data['has_subscription'] = 'Yes';
+				}
+			}
+
 			return $data;
 		}, $customers);
 
@@ -88,9 +100,20 @@ class Customers {
 		return $customers;
 	}
 
+	// Grab subscribers
+	private function fetchSubscribers() {
+		return $this->wpdb->get_col("SELECT DISTINCT pm.meta_value
+			FROM {$this->wpdb->prefix}posts as p
+			JOIN {$this->wpdb->prefix}postmeta as pm
+				ON p.ID = pm.post_id
+			WHERE p.post_type = 'shop_subscription'
+			AND p.post_status = 'wc-active'
+			AND pm.meta_key = '_customer_user'");
+	}
+
+	// Normalize street suffixes to reduce duplicates
+	// Taken from the UPS Postal Service
 	private function normalizeStreetSuffixes($data) {
-		// Normalize street suffixes to reduce duplicates
-		// Taken from the UP Postal Service
 		$street_suffixes = [
 			'ALLEY' => 'ALY',
 			'ESTATES' => 'EST',

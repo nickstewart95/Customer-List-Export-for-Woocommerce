@@ -90,6 +90,7 @@ class Loader {
 			'City',
 			'State',
 			'ZIP',
+			'Has Subscription',
 		];
 
 		$customers = array_map(function ($data) {
@@ -101,6 +102,7 @@ class Loader {
 				$data['city'],
 				$data['state'],
 				$data['zip'],
+				$data['has_subscription'],
 			];
 		}, $customers);
 

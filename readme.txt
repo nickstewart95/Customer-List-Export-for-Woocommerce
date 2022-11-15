@@ -29,6 +29,10 @@ The data can be filtered by billing address or shipping address
 
 A hash is created with either the billing or shipping address so only one hash can appear in the results. Address ssuffixes are also normalized to prevent duplicates
 
+= Where does the has subscription come from? =
+
+The plugin pulls a list of active subscribers using the WooCommerce Subscriptions plugin and compares it with the order user id.
+
 == Screenshots ==
 
 screenshot-1.png
