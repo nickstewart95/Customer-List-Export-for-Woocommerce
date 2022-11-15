@@ -3,6 +3,7 @@
 namespace CustomerListExport;
 
 use Jenssegers\Blade\Blade as Blade;
+use PhpCsv\Generator as Generator;
 
 use CustomerListExport\Customers as Customers;
 class Loader {
@@ -27,7 +28,6 @@ class Loader {
 
 	public function init() {
 		$this->initActions();
-		$this->initFilters();
 	}
 
 	public function initActions() {
@@ -42,31 +42,71 @@ class Loader {
 				[$this, 'exportListPage'],
 			);
 		});
-	}
 
-	public function initFilters() {
-		//
+		// Export download
+		add_action('init', function () {
+			$source = 'billing';
+			if ($_GET['source'] == 'shipping') {
+				$source = 'shipping';
+			}
+
+			if (
+				$_GET['page'] == 'customer-list-export' &&
+				$_GET['a'] == 'export'
+			) {
+				$customers = new Customers();
+				$customers = $customers->fetchData($source);
+
+				$this->createCSV($customers, $source);
+				die();
+			}
+		});
 	}
 
 	public function exportListPage() {
 		$blade = $GLOBALS['blade'];
 
-		$source = !empty($_GET['source'])
-			? sanitize_key($_GET['source'])
-			: 'billing';
-
-		$action = !empty($_GET['a']) ? sanitize_key($_GET['a']) : false;
+		$source = 'billing';
+		if ($_GET['source'] == 'shipping') {
+			$source = 'shipping';
+		}
 
 		$customers = new Customers();
 		$customers = $customers->fetchData($source);
-
-		if ($action == 'export') {
-			//
-		}
 
 		echo $blade->render('admin.main', [
 			'customers' => $customers,
 			'source' => $source,
 		]);
+	}
+
+	private function createCSV($customers, $source) {
+		$file_name = "{$source}_customer_export.csv";
+		$headers = [
+			'First Name',
+			'Last Name',
+			'Address 1',
+			'Address 2',
+			'City',
+			'State',
+			'ZIP',
+		];
+
+		$customers = array_map(function ($data) {
+			return [
+				$data['first_name'],
+				$data['last_name'],
+				$data['address_1'],
+				$data['address_2'],
+				$data['city'],
+				$data['state'],
+				$data['zip'],
+			];
+		}, $customers);
+
+		$object = new Generator();
+		$object->setArray($customers, $headers);
+		$object->makeCsv();
+		$object->exportCsv($file_name, true);
 	}
 }

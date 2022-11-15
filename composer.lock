@@ -4,8 +4,53 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "27dd41c2bcd96cc230f3779939afa314",
+    "content-hash": "9b385efe6d9d0c9d12614cdbfac56607",
     "packages": [
+        {
+            "name": "albinvar/php-csv-generator",
+            "version": "v2.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/albinvar/php-csv-generator.git",
+                "reference": "2e55e7982380f0d9824e9b60fb72aac8dfa5a5ec"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/albinvar/php-csv-generator/zipball/2e55e7982380f0d9824e9b60fb72aac8dfa5a5ec",
+                "reference": "2e55e7982380f0d9824e9b60fb72aac8dfa5a5ec",
+                "shasum": ""
+            },
+            "type": "library",
+            "autoload": {
+                "psr-4": {
+                    "PhpCsv\\": "src/PhpCsv/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Albin Varghese",
+                    "email": "albin8285@gmail.com"
+                }
+            ],
+            "description": "The Termux Webzone CLI App.",
+            "homepage": "https://github.com/albinvar/php-csv-generator",
+            "keywords": [
+                "cli",
+                "csv to json",
+                "csv to php",
+                "php csv generator",
+                "php to csv"
+            ],
+            "support": {
+                "issues": "https://github.com/albinvar/php-csv-generator/issues",
+                "source": "https://github.com/albinvar/php-csv-generator"
+            },
+            "time": "2021-06-06T21:24:57+00:00"
+        },
         {
             "name": "bordoni/phpass",
             "version": "0.3.6",
