@@ -4,6 +4,7 @@ namespace CustomerListExport;
 
 use Jenssegers\Blade\Blade as Blade;
 
+use CustomerListExport\Customers as Customers;
 class Loader {
 	protected $version;
 
@@ -50,6 +51,22 @@ class Loader {
 	public function exportListPage() {
 		$blade = $GLOBALS['blade'];
 
-		echo $blade->render('admin.main');
+		$source = !empty($_GET['source'])
+			? sanitize_key($_GET['source'])
+			: 'billing';
+
+		$action = !empty($_GET['a']) ? sanitize_key($_GET['a']) : false;
+
+		$customers = new Customers();
+		$customers = $customers->fetchData($source);
+
+		if ($action == 'export') {
+			//
+		}
+
+		echo $blade->render('admin.main', [
+			'customers' => $customers,
+			'source' => $source,
+		]);
 	}
 }
