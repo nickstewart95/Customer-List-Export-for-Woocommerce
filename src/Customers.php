@@ -62,7 +62,10 @@ class Customers {
 				!empty($data['address_1']) &&
 				!empty($data['city'])
 			) {
-				$hash = $data['last_name'] . $data['address_1'] . $data['city'];
+				$hash =
+					$data['last_name'] .
+					$data['address_1'] .
+					substr($data['zip'], 0, 5);
 				$hash = md5(strtoupper($hash));
 			}
 
