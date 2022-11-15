@@ -2,9 +2,9 @@
 Author: Nick Stewart
 Author URI: https://nickstewart.me
 Tags: customer, export, woocommerce, address
-Requires at least: 5.0
-Tested up to: 5.3
-Stable tag: 1.0.5
+Requires at least: 5.3
+Tested up to: 6.0
+Stable tag: 1.0.0
 Requires PHP: 7.4
 License: GPLv2 or later
 License URI: https://www.gnu.org/licenses/gpl-2.0.html
@@ -21,7 +21,17 @@ This plugin allows you to export a CSV of customers and their associated address
 
 A CSV
 
+= Can you filter the data? =
+
+The data can be filtered by billing address or shipping address
+
+= How are duplicates account for? =
+
+A hash is created with either the billing or shipping address so only one hash can appear in the results. Address ssuffixes are also normalized to prevent duplicates
+
 == Screenshots ==
+
+screenshot-1.png
 
 == Changelog ==
 
