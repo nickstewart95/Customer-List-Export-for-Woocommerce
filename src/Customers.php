@@ -50,8 +50,16 @@ class Customers {
 			}
 
 			// Create a hash for easy compare
-			$hash = $data['last_name'] . $data['address_1'] . $data['city'];
-			$hash = md5(strtolower($hash));
+			$hash = false;
+			if (
+				!empty($data['last_name']) &&
+				!empty($data['address_1']) &&
+				!empty($data['city'])
+			) {
+				$hash = $data['last_name'] . $data['address_1'] . $data['city'];
+				$hash = md5(strtolower($hash));
+			}
+
 			$data['hash'] = $hash;
 
 			return $data;
@@ -62,12 +70,17 @@ class Customers {
 		$customers = array_filter($customers, function ($data) use (
 			&$processed
 		) {
-			if (!in_array($data['hash'], $processed)) {
+			if ($data['hash'] && !in_array($data['hash'], $processed)) {
 				$processed[] = $data['hash'];
 				return true;
 			} else {
 				return false;
 			}
+		});
+
+		// Sort by last name
+		uasort($customers, function ($x, $y) {
+			return $x['last_name'] > $y['last_name'];
 		});
 
 		return $customers;
