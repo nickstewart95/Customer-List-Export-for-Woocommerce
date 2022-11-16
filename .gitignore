@@ -5,3 +5,4 @@ build
 .env
 !/config/*
 *.dat
+.DS_Store
