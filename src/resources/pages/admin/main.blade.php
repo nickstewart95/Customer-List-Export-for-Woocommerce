@@ -17,12 +17,13 @@
 			<tr>
 				<th scope="col" id="first_name" class="manage-column column-type">First Name</th>
 				<th scope="col" id="last_name" class="manage-column column-type">Last Name</th>
+				<th scope="col" id="email" class="manage-column column-type">Email</th>
 				<th scope="col" id="address_1" class="manage-column column-type">Address 1</th>
 				<th scope="col" id="address_2" class="manage-column column-type">Address 2</th>
 				<th scope="col" id="city" class="manage-column column-type">City</th>
 				<th scope="col" id="state" class="manage-column column-type">State</th>
 				<th scope="col" id="zip" class="manage-column column-type">ZIP</th>
-				<th scope="col" id="last_name" class="manage-column column-type">Has Subscriptions</th>
+				<th scope="col" id="subscription" class="manage-column column-type">Subscription?</th>
 			</tr>
 		</thead>
 		<tbody>
@@ -30,6 +31,7 @@
 			<tr>
 					<td>{{ $customer['first_name'] }}</td>
 					<td>{{ $customer['last_name'] }}</td>
+					<td>{{ $customer['email'] }}</td>
 					<td>{{ $customer['address_1'] }}</td>
 					<td>{{ $customer['address_2'] }}</td>
 					<td>{{ $customer['city'] }}</td>

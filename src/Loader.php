@@ -85,6 +85,7 @@ class Loader {
 		$headers = [
 			'First Name',
 			'Last Name',
+			'Email Address',
 			'Address 1',
 			'Address 2',
 			'City',
@@ -97,6 +98,7 @@ class Loader {
 			return [
 				$data['first_name'],
 				$data['last_name'],
+				$data['email'],
 				$data['address_1'],
 				$data['address_2'],
 				$data['city'],

@@ -53,6 +53,10 @@ class Customers {
 				$data['zip'] = $data['_shipping_postcode'];
 			}
 
+			$data['email'] = !empty($data['_customer_email'])
+				? $data['_customer_email']
+				: $data['_billing_email'];
+
 			$data = $this->normalizeStreetSuffixes($data);
 
 			// Create a hash for easy compare
@@ -124,12 +128,11 @@ class Customers {
 		$customers = array_filter($customers, function ($data) use (
 			&$processed
 		) {
-			$email = !empty($data['_customer_email'])
-				? $data['_customer_email']
-				: $data['_billing_email'];
-
-			if (!empty($email) && !in_array($email, $processed)) {
-				$processed[] = $email;
+			if (
+				!empty($data['email']) &&
+				!in_array($data['email'], $processed)
+			) {
+				$processed[] = $data['email'];
 				return true;
 			} else {
 				return false;
