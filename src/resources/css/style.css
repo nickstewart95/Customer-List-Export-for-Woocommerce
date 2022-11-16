@@ -1,0 +1,13 @@
+.customer-list-export-table .fancySearchRow input {
+	display: block;
+	margin: 20px auto;
+	padding: 0 8px;
+	line-height: 2;
+	min-height: 30px;
+	width: 90% !important;
+	box-shadow: 0 0 0 transparent;
+	border-radius: 4px;
+	border: 1px solid #8c8f94;
+	background-color: #fff;
+	color: #2c3338;
+}

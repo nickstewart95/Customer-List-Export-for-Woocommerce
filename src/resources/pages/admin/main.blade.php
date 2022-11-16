@@ -12,18 +12,18 @@
 		<li><a href="{{ admin_url() }}admin.php?page=customer-list-export&source=shipping">Shipping</a></li>
 	</ul>
 	<p style="clear: both;"><strong>{{ count($customers) }}</strong> results, using {{ $source }} information.</p>
-	<table class="wp-list-table widefat fixed striped table-view-list">
+	<table class="wp-list-table widefat fixed striped table-view-list customer-list-export-table">
 		<thead>
 			<tr>
-				<th scope="col" id="first_name" class="manage-column column-type">First Name</th>
-				<th scope="col" id="last_name" class="manage-column column-type">Last Name</th>
-				<th scope="col" id="email" class="manage-column column-type">Email</th>
-				<th scope="col" id="address_1" class="manage-column column-type">Address 1</th>
-				<th scope="col" id="address_2" class="manage-column column-type">Address 2</th>
-				<th scope="col" id="city" class="manage-column column-type">City</th>
-				<th scope="col" id="state" class="manage-column column-type">State</th>
-				<th scope="col" id="zip" class="manage-column column-type">ZIP</th>
-				<th scope="col" id="subscription" class="manage-column column-type">Subscription?</th>
+				<th scope="col" id="first_name" class="manage-column column-type" data-sortas="case-insensitive">First Name</th>
+				<th scope="col" id="last_name" class="manage-column column-type" data-sortas="case-insensitive">Last Name</th>
+				<th scope="col" id="email" class="manage-column column-type" data-sortas="case-insensitive">Email</th>
+				<th scope="col" id="address_1" class="manage-column column-type" data-sortas="case-insensitive">Address 1</th>
+				<th scope="col" id="address_2" class="manage-column column-type" data-sortas="case-insensitive">Address 2</th>
+				<th scope="col" id="city" class="manage-column column-type" data-sortas="case-insensitive">City</th>
+				<th scope="col" id="state" class="manage-column column-type" data-sortas="case-insensitive">State</th>
+				<th scope="col" id="zip" class="manage-column column-type" data-sortas="numeric">ZIP</th>
+				<th scope="col" id="subscription" class="manage-column column-type" data-sortas="case-insensitive">Subscription?</th>
 			</tr>
 		</thead>
 		<tbody>

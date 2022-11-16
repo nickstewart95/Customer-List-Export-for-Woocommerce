@@ -31,6 +31,26 @@ class Loader {
 	}
 
 	public function initActions() {
+		// Enqueue styles and scripts
+		add_action('admin_enqueue_scripts', function () {
+			if ($_GET['page'] == 'customer-list-export') {
+				wp_enqueue_style(
+					'customer-export-styles',
+					$this->pluginBaseUrl . 'src/resources/css/style.css',
+				);
+
+				wp_enqueue_script(
+					'customer-export-fancy-table',
+					$this->pluginBaseUrl . 'src/resources/js/fancyTable.min.js',
+				);
+
+				wp_enqueue_script(
+					'customer-export-scripts',
+					$this->pluginBaseUrl . 'src/resources/js/script.js',
+				);
+			}
+		});
+
 		// Add the page to Wordpress
 		add_action('admin_menu', function () {
 			add_submenu_page(
