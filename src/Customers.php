@@ -16,13 +16,15 @@ class Customers {
 		// Grab all the meta values
 		$this->wpdb->query('SET SESSION group_concat_max_len = 10000');
 
-		$query = " SELECT p.*, 
-			GROUP_CONCAT(pm.meta_key ORDER BY pm.meta_key DESC SEPARATOR '||') as meta_keys, 
-			GROUP_CONCAT(pm.meta_value ORDER BY pm.meta_key DESC SEPARATOR '||') as meta_values 
-			FROM {$this->wpdb->posts} p 
-			LEFT JOIN {$this->wpdb->postmeta} pm on pm.post_id = p.ID 
-			WHERE p.post_type = 'shop_order'
-			GROUP BY p.ID";
+		$query = <<<SQL
+SELECT p.*,
+	GROUP_CONCAT(pm.meta_key ORDER BY pm.meta_key DESC SEPARATOR '||') as meta_keys,
+	GROUP_CONCAT(pm.meta_value ORDER BY pm.meta_key DESC SEPARATOR '||') as meta_values 
+FROM {$this->wpdb->posts} p 
+LEFT JOIN {$this->wpdb->postmeta} pm on pm.post_id = p.ID 
+WHERE p.post_type = 'shop_order'
+GROUP BY p.ID
+SQL;
 
 		$customers = $this->wpdb->get_results($query);
 
@@ -99,13 +101,15 @@ class Customers {
 
 	// Grab subscribers
 	private function fetchSubscribers() {
-		return $this->wpdb->get_col("SELECT DISTINCT pm.meta_value
-			FROM {$this->wpdb->prefix}posts as p
-			JOIN {$this->wpdb->prefix}postmeta as pm
-				ON p.ID = pm.post_id
-			WHERE p.post_type = 'shop_subscription'
-			AND p.post_status = 'wc-active'
-			AND pm.meta_key = '_customer_user'");
+		$sql = 	<<<SQL
+SELECT DISTINCT pm.meta_value
+FROM {$this->wpdb->prefix}posts as p
+JOIN {$this->wpdb->prefix}postmeta as pm ON p.ID = pm.post_id
+WHERE p.post_type = 'shop_subscription'
+AND p.post_status = 'wc-active'
+AND pm.meta_key = '_customer_user'
+SQL;
+		return $this->wpdb->get_col($sql);
 	}
 
 	// Remove duplicates by address and email
