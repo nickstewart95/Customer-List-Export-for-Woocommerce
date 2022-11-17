@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "9b385efe6d9d0c9d12614cdbfac56607",
+    "content-hash": "0ae81c086f478a0ec35d94550939da5a",
     "packages": [
         {
             "name": "albinvar/php-csv-generator",
@@ -50,62 +50,6 @@
                 "source": "https://github.com/albinvar/php-csv-generator"
             },
             "time": "2021-06-06T21:24:57+00:00"
-        },
-        {
-            "name": "bordoni/phpass",
-            "version": "0.3.6",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/bordoni/phpass.git",
-                "reference": "12f8f5cc03ebb7efd69554f104afe9aa1aa46e1a"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/bordoni/phpass/zipball/12f8f5cc03ebb7efd69554f104afe9aa1aa46e1a",
-                "reference": "12f8f5cc03ebb7efd69554f104afe9aa1aa46e1a",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3.3"
-            },
-            "replace": {
-                "hautelook/phpass": "0.3.*"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-0": {
-                    "Hautelook": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "Public Domain"
-            ],
-            "authors": [
-                {
-                    "name": "Solar Designer",
-                    "email": "solar@openwall.com",
-                    "homepage": "http://openwall.com/phpass/"
-                },
-                {
-                    "name": "Gustavo Bordoni",
-                    "email": "gustavo@bordoni.me",
-                    "homepage": "https://bordoni.me"
-                }
-            ],
-            "description": "Portable PHP password hashing framework",
-            "homepage": "http://github.com/bordoni/phpass/",
-            "keywords": [
-                "blowfish",
-                "crypt",
-                "password",
-                "security"
-            ],
-            "support": {
-                "issues": "https://github.com/bordoni/phpass/issues",
-                "source": "https://github.com/bordoni/phpass/tree/0.3.6"
-            },
-            "time": "2012-08-31T00:00:00+00:00"
         },
         {
             "name": "doctrine/inflector",
@@ -197,73 +141,6 @@
                 }
             ],
             "time": "2022-10-20T09:10:12+00:00"
-        },
-        {
-            "name": "fakerphp/faker",
-            "version": "v1.20.0",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/FakerPHP/Faker.git",
-                "reference": "37f751c67a5372d4e26353bd9384bc03744ec77b"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/FakerPHP/Faker/zipball/37f751c67a5372d4e26353bd9384bc03744ec77b",
-                "reference": "37f751c67a5372d4e26353bd9384bc03744ec77b",
-                "shasum": ""
-            },
-            "require": {
-                "php": "^7.1 || ^8.0",
-                "psr/container": "^1.0 || ^2.0",
-                "symfony/deprecation-contracts": "^2.2 || ^3.0"
-            },
-            "conflict": {
-                "fzaninotto/faker": "*"
-            },
-            "require-dev": {
-                "bamarni/composer-bin-plugin": "^1.4.1",
-                "doctrine/persistence": "^1.3 || ^2.0",
-                "ext-intl": "*",
-                "symfony/phpunit-bridge": "^4.4 || ^5.2"
-            },
-            "suggest": {
-                "doctrine/orm": "Required to use Faker\\ORM\\Doctrine",
-                "ext-curl": "Required by Faker\\Provider\\Image to download images.",
-                "ext-dom": "Required by Faker\\Provider\\HtmlLorem for generating random HTML.",
-                "ext-iconv": "Required by Faker\\Provider\\ru_RU\\Text::realText() for generating real Russian text.",
-                "ext-mbstring": "Required for multibyte Unicode string functionality."
-            },
-            "type": "library",
-            "extra": {
-                "branch-alias": {
-                    "dev-main": "v1.20-dev"
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Faker\\": "src/Faker/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "François Zaninotto"
-                }
-            ],
-            "description": "Faker is a PHP library that generates fake data for you.",
-            "keywords": [
-                "data",
-                "faker",
-                "fixtures"
-            ],
-            "support": {
-                "issues": "https://github.com/FakerPHP/Faker/issues",
-                "source": "https://github.com/FakerPHP/Faker/tree/v1.20.0"
-            },
-            "time": "2022-07-20T13:12:54+00:00"
         },
         {
             "name": "illuminate/bus",
@@ -933,72 +810,6 @@
                 }
             ],
             "time": "2020-09-17T08:25:26+00:00"
-        },
-        {
-            "name": "jgrossi/corcel",
-            "version": "v5.1.1",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/corcel/corcel.git",
-                "reference": "55ad395d641954f3b4092c4dd68ec52f4237ea4f"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/corcel/corcel/zipball/55ad395d641954f3b4092c4dd68ec52f4237ea4f",
-                "reference": "55ad395d641954f3b4092c4dd68ec52f4237ea4f",
-                "shasum": ""
-            },
-            "require": {
-                "bordoni/phpass": "0.3.*",
-                "fakerphp/faker": "^1.10",
-                "illuminate/database": "^8.0",
-                "illuminate/filesystem": "^8.0",
-                "illuminate/support": "^8.0",
-                "php": ">=7.3",
-                "thunderer/shortcode": "^0.7.3"
-            },
-            "replace": {
-                "juniorgrossi/corcel": "self.version"
-            },
-            "require-dev": {
-                "dms/phpunit-arraysubset-asserts": "^0.3",
-                "laravel/legacy-factories": "^1.0",
-                "mockery/mockery": "^1.0",
-                "orchestra/testbench": "^6.0",
-                "symfony/thanks": "^1.0"
-            },
-            "type": "library",
-            "extra": {
-                "laravel": {
-                    "providers": [
-                        "Corcel\\Laravel\\CorcelServiceProvider"
-                    ]
-                }
-            },
-            "autoload": {
-                "psr-4": {
-                    "Corcel\\": "src/",
-                    "Corcel\\Tests\\": "tests/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Junior Grossi",
-                    "email": "juniorgro@gmail.com",
-                    "homepage": "http://jgrossi.com"
-                }
-            ],
-            "description": "Use WordPress backend with Laravel or any PHP framework",
-            "homepage": "http://github.com/corcel/corcel",
-            "support": {
-                "issues": "https://github.com/corcel/corcel/issues",
-                "source": "https://github.com/corcel/corcel/tree/v5.1.1"
-            },
-            "time": "2021-09-30T19:58:51+00:00"
         },
         {
             "name": "nesbot/carbon",
@@ -2265,62 +2076,6 @@
                 }
             ],
             "time": "2022-06-27T16:58:25+00:00"
-        },
-        {
-            "name": "thunderer/shortcode",
-            "version": "v0.7.5",
-            "source": {
-                "type": "git",
-                "url": "https://github.com/thunderer/Shortcode.git",
-                "reference": "a4fee30613bd46efb421f8305aff0466a3268a99"
-            },
-            "dist": {
-                "type": "zip",
-                "url": "https://api.github.com/repos/thunderer/Shortcode/zipball/a4fee30613bd46efb421f8305aff0466a3268a99",
-                "reference": "a4fee30613bd46efb421f8305aff0466a3268a99",
-                "shasum": ""
-            },
-            "require": {
-                "php": ">=5.3"
-            },
-            "require-dev": {
-                "phpunit/phpunit": ">=4.1",
-                "symfony/yaml": ">=2.0"
-            },
-            "suggest": {
-                "ext-dom": "if you want to use XML serializer",
-                "ext-json": "if you want to use JSON serializer",
-                "symfony/yaml": "if you want to use YAML serializer"
-            },
-            "type": "library",
-            "autoload": {
-                "psr-4": {
-                    "Thunder\\Shortcode\\": "src/"
-                }
-            },
-            "notification-url": "https://packagist.org/downloads/",
-            "license": [
-                "MIT"
-            ],
-            "authors": [
-                {
-                    "name": "Tomasz Kowalczyk",
-                    "email": "tomasz@kowalczyk.cc"
-                }
-            ],
-            "description": "Advanced shortcode (BBCode) parser and engine for PHP",
-            "keywords": [
-                "bbcode",
-                "engine",
-                "library",
-                "parser",
-                "shortcode"
-            ],
-            "support": {
-                "issues": "https://github.com/thunderer/Shortcode/issues",
-                "source": "https://github.com/thunderer/Shortcode/tree/v0.7.5"
-            },
-            "time": "2022-01-13T18:53:33+00:00"
         },
         {
             "name": "voku/portable-ascii",
