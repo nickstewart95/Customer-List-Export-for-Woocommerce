@@ -5,7 +5,6 @@
 		}
 	},
 	"require": {
-		"illuminate/database": "^8.41",
 		"nesbot/carbon": "^2.58",
 		"jenssegers/blade": "^1.4",
 		"albinvar/php-csv-generator": "^2.1"
