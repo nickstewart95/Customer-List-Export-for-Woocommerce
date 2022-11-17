@@ -17,17 +17,21 @@ This plugin allows you to export a CSV of customers and their associated address
 
 == Frequently Asked Questions ==
 
+= How do I get to this? +
+
+It is located in the Marketing tab of the WooCommerce tabs in the admin.
+
 = What format is the export? =
 
 A CSV
 
 = Can you filter the data? =
 
-The data can be filtered by billing address or shipping address
+The data can be filtered by billing address or shipping address.
 
 = How are duplicates account for? =
 
-A hash is created with either the billing or shipping address so only one hash can appear in the results. Address ssuffixes are also normalized to prevent duplicates
+A hash is created with either the billing or shipping address so only one hash can appear in the results. Address ssuffixes are also normalized to prevent duplicates.
 
 = Where does the has subscription come from? =
 
