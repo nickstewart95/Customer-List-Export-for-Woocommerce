@@ -1,4 +1,9 @@
-.customer-list-export-table .fancySearchRow input {
+.customer-list-export-plugin .billing-active .billing,
+.customer-list-export-plugin .shipping-active .shipping {
+	font-weight: bold;
+}
+
+.customer-list-export-plugin .customer-list-export-table .fancySearchRow input {
 	display: block;
 	margin: 20px auto;
 	padding: 0 8px;
