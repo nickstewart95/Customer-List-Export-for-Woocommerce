@@ -94,9 +94,17 @@ class Loader {
 		$customers = new Customers();
 		$customers = $customers->fetchData($source);
 
+		$display_notice = true;
+
+		$site_url = get_site_url();
+		if (strpos($site_url, 'foxhollow')) {
+			$display_notice = false;
+		}
+
 		echo $blade->render('admin.main', [
 			'customers' => $customers,
 			'source' => $source,
+			'display_notice' => $display_notice,
 		]);
 	}
 
