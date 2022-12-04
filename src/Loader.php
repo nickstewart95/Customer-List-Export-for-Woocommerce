@@ -16,7 +16,7 @@ class Loader {
 	public function __construct($pluginBaseDir, $pluginBaseUrl) {
 		$this->pluginBaseDir = $pluginBaseDir;
 		$this->pluginBaseUrl = $pluginBaseUrl;
-		$this->version = '1.0.0';
+		$this->version = '1.1.1';
 	}
 
 	public static function initBladeViews() {

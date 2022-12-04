@@ -3,7 +3,7 @@
  * @wordpress-plugin
  * Plugin Name: Customer List Export for Woocommerce
  * Description: Export a customer list with addresses from WooCommerce
- * Version: 1.0.0
+ * Version: 1.1.1
  * Author: Nick Stewart
  * Author URI: https://nickstewart.me
  */
