@@ -1,4 +1,4 @@
-<div class="wrap">
+<div class="customer-list-export-plugin wrap">
 	<div style="display: flex; justify-content: space-between; align-items: center;">
 		<h3>Customer List Export for Woocommerce</h3>
 		<a href="{{ admin_url() }}admin.php?page=customer-list-export&source={{ $source }}&a=export" class="button button-primary button-large">Export to CSV</a>
@@ -6,10 +6,10 @@
 	<p>This plugin pulls all orders from WooCommerce and then builds out the meta data to create the customer list. The filter works by either creating a hash of the billing or shipping last name and address (address_1 and city) and then removing any duplicates.</p>
 	<p>Created by <a href="https://nickstewart.me/" target="_blank">Nick Stewart</a></p>
 	<hr />
-	<ul class="subsubsub">
+	<ul class="subsubsub {{ $source }}-active">
 		<li>Filter By:</li>
-		<li><a href="{{ admin_url() }}admin.php?page=customer-list-export&source=billing">Billing</a></li>
-		<li><a href="{{ admin_url() }}admin.php?page=customer-list-export&source=shipping">Shipping</a></li>
+		<li><a href="{{ admin_url() }}admin.php?page=customer-list-export&source=billing" class="billing">Billing</a></li>
+		<li><a href="{{ admin_url() }}admin.php?page=customer-list-export&source=shipping" class="shipping">Shipping</a></li>
 	</ul>
 	<p style="clear: both;"><strong>{{ count($customers) }}</strong> results, using {{ $source }} information.</p>
 	<table class="wp-list-table widefat fixed striped table-view-list customer-list-export-table">
